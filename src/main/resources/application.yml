@@ -14,3 +14,12 @@ spring:
           url: jdbc:mysql://localhost:3306/code-gen
           username: root
           password: root
+
+
+mybatis-plus:
+  type-aliases-package: com.lipop.code.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+

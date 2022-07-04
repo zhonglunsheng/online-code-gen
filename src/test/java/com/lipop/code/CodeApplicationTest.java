@@ -2,6 +2,9 @@ package com.lipop.code;
 
 
 import com.lipop.code.core.template.TemplateService;
+import com.lipop.code.domain.GenTable;
+import com.lipop.code.domain.GenTableColumn;
+import com.lipop.code.service.GenTableService;
 import com.lipop.code.service.TestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,9 @@ public class CodeApplicationTest {
     @Autowired
     private TestService testService;
 
+    @Autowired
+    private GenTableService genTableService;
+
 
     @Test
     public void testGen () {
@@ -36,6 +42,21 @@ public class CodeApplicationTest {
         List<com.lipop.code.domain.Test> list = testService.list();
 
         System.out.println("list = " + list);
+    }
+
+
+    @Test
+    public void testGetTableList () {
+        List<GenTable> genTables = genTableService.selectTableByName();
+
+        System.out.println("list = " + genTables);
+    }
+
+    @Test
+    public void testGetTableColumn () {
+        List<GenTableColumn> genTables = genTableService.selectDbTableColumnsByName("test");
+
+        System.out.println("list = " + genTables);
     }
 
 }
