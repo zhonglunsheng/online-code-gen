@@ -11,7 +11,7 @@ spring:
           password: root
         master_2:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/code-gen
+          url: jdbc:mysql://localhost:3306/snow
           username: root
           password: root
 

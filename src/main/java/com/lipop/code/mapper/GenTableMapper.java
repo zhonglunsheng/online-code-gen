@@ -5,11 +5,7 @@ import com.lipop.code.domain.GenTableColumn;
 
 import java.util.List;
 
-/**
- * 业务字段 数据层
- *
- * @author ruoyi
- */
+
 public interface GenTableMapper {
     /**
      * 根据表名称查询列信息
