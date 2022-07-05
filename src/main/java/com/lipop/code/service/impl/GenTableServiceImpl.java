@@ -25,4 +25,7 @@ public class GenTableServiceImpl implements GenTableService {
     public List<GenTable> selectTableByName() {
         return genTableMapper.selectTable();
     }
+
+
+
 }

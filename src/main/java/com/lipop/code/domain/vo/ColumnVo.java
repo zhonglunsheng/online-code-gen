@@ -3,6 +3,9 @@ package com.lipop.code.domain.vo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Data
 @ToString
 public class ColumnVo {
@@ -60,6 +63,9 @@ public class ColumnVo {
 
     /** 显示类型（input文本框、textarea文本域、select下拉框、checkbox复选框、radio单选框、datetime日期控件、upload上传控件、summernote富文本控件） */
     private String htmlType;
+
+
+    private Map<String, Object> extraField = new HashMap<>();
 
 
 

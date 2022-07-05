@@ -9,9 +9,7 @@ import java.util.List;
 public interface ICache {
 
 
-    @Cacheable(value = "globalCache", key = "#tableName")
     List<ColumnVo> getColumnVo(String tableName);
 
-    @CachePut(value = "globalCache", key = "#tableName")
     List<ColumnVo> updateColumns(String tableName, List<ColumnVo> columnVos);
 }

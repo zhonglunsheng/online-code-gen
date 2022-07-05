@@ -11,7 +11,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.6.0</version>
+        <version>2.5.6</version>
     </parent>
 
     <properties>
@@ -20,7 +20,7 @@
         <mybatis-plus>3.5.2</mybatis-plus>
         <enjoy.version>5.0.0</enjoy.version>
         <dynamic-datasource>3.5.1</dynamic-datasource>
-        <knife4j.version>2.0.8</knife4j.version>
+        <knife4j.version>2.0.7</knife4j.version>
         <hutool-all.version>5.8.3</hutool-all.version>
     </properties>
 
