@@ -33,8 +33,8 @@ public class TableColumnController {
 
 
     @GetMapping("/table-info-list")
-    public List<GenTable> tableList() {
-        return genTableService.selectTableByName();
+    public ResponseData tableList() {
+        return ResponseData.createSuccessResponse(genTableService.selectTableByName());
     }
 
     @GetMapping("/table-columns")

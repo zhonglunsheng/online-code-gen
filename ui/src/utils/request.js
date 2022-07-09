@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { Message } from 'element-ui';
 // 创建 axios 实例
 const service = axios.create({
   baseURL: '/api', // api base_url
@@ -26,8 +26,17 @@ service.interceptors.response.use((response) => {
   if (response.request.responseType === 'blob') {
     return response
   }
+
+  if (response.data.code == 200) {
+    Message.success(response.data.message)
+  }
+
+  if (response.data.code == 500) {
+    Message.error(response.data.message)
+  }
+
   return response.data
 }, err)
 
 
-export default axios
+export default service

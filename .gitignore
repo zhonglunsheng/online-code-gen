@@ -37,10 +37,10 @@ _dockerCerts/
 
 .factorypath
 
-node_modules/
-dist/
-package-lock.json
-yarn.lock
+ui/node_modules/
+ui/dist/
+ui/package-lock.json
+ui/yarn.lock
 
 rebel.xml
 

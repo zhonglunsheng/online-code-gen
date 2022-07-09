@@ -28,14 +28,22 @@ public class ResponseData<T> {
     }
 
     public static <T> ResponseData<T> createSuccessResponse(T data) {
-        return new ResponseData<T>(SUCCESS_CODE, "", data);
+        return new ResponseData<T>(SUCCESS_CODE, "请求成功", data);
     }
 
     public static <T> ResponseData<T> createSuccessResponse() {
-        return new ResponseData<T>(SUCCESS_CODE, "");
+        return new ResponseData<T>(SUCCESS_CODE, "请求失败");
     }
 
     public static <T> ResponseData<T> createErrorResponse() {
-        return new ResponseData<T>(ERROR_CODE, "");
+        return new ResponseData<T>(ERROR_CODE, "请求失败");
+    }
+
+    public static <T> ResponseData<T> createErrorResponse(T data) {
+        return new ResponseData<T>(ERROR_CODE, "请求失败", data);
+    }
+
+    public static <T> ResponseData<T> createErrorResponse(String message) {
+        return new ResponseData<T>(ERROR_CODE, message, null);
     }
 }

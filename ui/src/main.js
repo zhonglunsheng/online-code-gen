@@ -3,14 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from './utils/request'
-import ElementUI from 'element-ui' //引入element-ui库
 
-import 'element-ui/lib/theme-chalk/index.css' //引入element-ui样式
+import ViewUIPlus from 'view-ui-plus'
+import 'view-ui-plus/dist/styles/viewuiplus.css'
 
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI) //全局注册element-ui
+Vue.use(ViewUIPlus) //全局注册element-ui
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
