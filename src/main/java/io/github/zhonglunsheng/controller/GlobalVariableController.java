@@ -34,7 +34,7 @@ public class GlobalVariableController {
     public ResponseData updateGlobalVariable(@RequestBody SysGlobal sysGlobal) {
         if (StrUtil.isNotBlank(sysGlobal.getGlobalJson())) {
             try {
-                JSONObject.isValid(sysGlobal.getGlobalJson());
+                JSONObject.parseObject(sysGlobal.getGlobalJson());
             }catch (Exception e) {
                 return ResponseData.createErrorResponse("JSON格式异常");
             }

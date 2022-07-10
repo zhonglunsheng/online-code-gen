@@ -7,7 +7,6 @@ import io.github.zhonglunsheng.domain.GenTable;
 import io.github.zhonglunsheng.domain.GenTableColumn;
 import io.github.zhonglunsheng.domain.vo.ColumnVo;
 import io.github.zhonglunsheng.service.GenTableService;
-import io.github.zhonglunsheng.service.TestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,10 +20,6 @@ public class CodeApplicationTest {
 
     @Autowired
     private TemplateService templateService;
-
-
-    @Autowired
-    private TestService testService;
 
     @Autowired
     private GenTableService genTableService;
@@ -40,20 +35,10 @@ public class CodeApplicationTest {
     }
 
     @Test
-    public void testServiceT () {
-        List<io.github.zhonglunsheng.domain.Test> list = testService.list();
-
-        System.out.println("list = " + list);
-    }
-
-
-    @Test
     public void testGetTableList () {
         List<GenTable> genTables = genTableService.selectTableByName();
 
         System.out.println("list = " + genTables);
-
-
 
     }
 

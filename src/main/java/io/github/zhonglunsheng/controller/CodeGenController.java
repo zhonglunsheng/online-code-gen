@@ -2,13 +2,16 @@ package io.github.zhonglunsheng.controller;
 
 import cn.hutool.core.collection.CollUtil;
 import io.github.zhonglunsheng.common.ResponseData;
+import io.github.zhonglunsheng.domain.GenTableColumn;
 import io.github.zhonglunsheng.domain.dto.CodeGenDTO;
 import io.github.zhonglunsheng.service.CodeGenService;
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/code")
@@ -19,7 +22,7 @@ public class CodeGenController {
 
     @PostMapping("/gen")
     public ResponseData onlineCodeGen (@RequestBody CodeGenDTO codeGenDTO) {
-        return ResponseData.createSuccessResponse(codeGenService.codeGen(codeGenDTO.getContent(), codeGenDTO.getData()));
+        return ResponseData.createSuccessResponse(codeGenService.codeGen(codeGenDTO));
     }
 
 

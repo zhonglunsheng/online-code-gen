@@ -22,7 +22,9 @@ public class TplController {
     public ResponseData list (@RequestBody SysTpl sysTpl) {
         QueryWrapper<SysTpl> queryWrapper =  new QueryWrapper<>();
         if (StrUtil.isNotBlank(sysTpl.getTplName())) {
-            queryWrapper.like("tpl_name", sysTpl.getTplName());
+            queryWrapper.like("tpl_name", sysTpl.getTplName())
+                    .or()
+                    .like("group_name", sysTpl.getTplName());
         }
         return ResponseData.createSuccessResponse(sysTplService.list(queryWrapper));
     }

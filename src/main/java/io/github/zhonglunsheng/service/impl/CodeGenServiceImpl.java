@@ -41,8 +41,8 @@ public class CodeGenServiceImpl implements CodeGenService {
     private GenTableService genTableService;
 
     @Override
-    public String codeGen(String tplContent, Map<String, Object> data) {
-        return templateService.generateTemplate(tplContent, data);
+    public String codeGen(CodeGenDTO codeGenDTO) {
+        return templateService.generateTemplate(codeGenDTO.getContent(), getAllVariable(codeGenDTO));
     }
 
     @Override
@@ -130,7 +130,7 @@ public class CodeGenServiceImpl implements CodeGenService {
         for (SysTpl tpl :
                 needGenContentSysTpl) {
             // 获取模板内容，生成模板
-            String generateContent = templateService.generateTemplate(tpl.getContent(), codeGenDTO.getData());
+            String generateContent = templateService.generateTemplate(tpl.getContent(), allVariable);
             // 文件名支持从变量获取
             String fileName = templateService.generateTemplate(tpl.getFileName(), allVariable);
             // 创建文件

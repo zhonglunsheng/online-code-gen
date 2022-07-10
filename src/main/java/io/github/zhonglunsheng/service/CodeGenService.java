@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface CodeGenService {
-    String codeGen(String tplContent, Map<String, Object> data);
+
+    String codeGen(CodeGenDTO codeGenDTO);
 
     List<String> localCodeGen (CodeGenDTO codeGenDTO);
 
