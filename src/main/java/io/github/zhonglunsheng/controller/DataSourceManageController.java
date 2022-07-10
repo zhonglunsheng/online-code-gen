@@ -20,40 +20,40 @@ import java.util.Map;
 @RestController
 public class DataSourceManageController {
 
-    @Autowired
-    private DynamicRoutingDataSource dataSource;
-
-    @Autowired
-    private List<DynamicDataSourceProvider> providers;
-
-
-    @Autowired
-    private DynamicDataSourceProvider dynamicDataSourceProvider;
-
-    @Autowired
-    private DynamicDataSourceProperties dynamicDataSourceProperties;
-
-
-    @GetMapping("/datasource")
-    public ResponseData changeDataSource () {
-        // 重新设置数据源属性
-
-        System.out.println("providers = " + providers);
-        System.out.println(dynamicDataSourceProvider);
-        System.out.println(dynamicDataSourceProperties);
-
-        DataSourceProperty master_2 = dynamicDataSourceProperties.getDatasource().get("master_2");
-
-        master_2.setUrl("jdbc:mysql://localhost:3306/lipop?serverTimezone=UTC");
-
-        dynamicDataSourceProvider = new YmlDynamicDataSourceProvider(dynamicDataSourceProperties.getDatasource());
-        try {
-            dataSource.afterPropertiesSet();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return ResponseData.createSuccessResponse(dataSource);
-
-    }
+//    @Autowired
+//    private DynamicRoutingDataSource dataSource;
+//
+//    @Autowired
+//    private List<DynamicDataSourceProvider> providers;
+//
+//
+//    @Autowired
+//    private DynamicDataSourceProvider dynamicDataSourceProvider;
+//
+//    @Autowired
+//    private DynamicDataSourceProperties dynamicDataSourceProperties;
+//
+//
+//    @GetMapping("/datasource")
+//    public ResponseData changeDataSource () {
+//        // 重新设置数据源属性
+//
+//        System.out.println("providers = " + providers);
+//        System.out.println(dynamicDataSourceProvider);
+//        System.out.println(dynamicDataSourceProperties);
+//
+//        DataSourceProperty master_2 = dynamicDataSourceProperties.getDatasource().get("master_2");
+//
+//        master_2.setUrl("jdbc:mysql://localhost:3306/lipop?serverTimezone=UTC");
+//
+//        dynamicDataSourceProvider = new YmlDynamicDataSourceProvider(dynamicDataSourceProperties.getDatasource());
+//        try {
+//            dataSource.afterPropertiesSet();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return ResponseData.createSuccessResponse(dataSource);
+//
+//    }
 }

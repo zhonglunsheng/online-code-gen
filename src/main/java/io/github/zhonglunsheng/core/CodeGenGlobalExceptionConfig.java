@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Configuration
 @ControllerAdvice
 @ResponseBody
-public class GlobalExceptionConfig {
+public class CodeGenGlobalExceptionConfig {
 
     @ExceptionHandler(Exception.class)
     public ResponseData handleGlobalException (Exception e) {

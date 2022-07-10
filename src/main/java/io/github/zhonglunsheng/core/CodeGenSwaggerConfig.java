@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 @Configuration
 @EnableSwagger2WebMvc
-public class SwaggerConfig {
+public class CodeGenSwaggerConfig {
 
     @Bean(value = "defaultApi2")
     public Docket defaultApi2() {
