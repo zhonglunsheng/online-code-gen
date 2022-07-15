@@ -2,6 +2,7 @@ package io.github.zhonglunsheng.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
+import io.github.zhonglunsheng.core.cache.ICache;
 import io.github.zhonglunsheng.domain.GenTable;
 import io.github.zhonglunsheng.domain.GenTableColumn;
 import io.github.zhonglunsheng.mapper.GenTableMapper;

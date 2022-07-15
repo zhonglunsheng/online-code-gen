@@ -1,12 +1,12 @@
 package io.github.zhonglunsheng;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 
-@SpringBootApplication
-@MapperScan("io.github.zhonglunsheng.mapper")
+
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableCaching
 public class CodeApplication {
 

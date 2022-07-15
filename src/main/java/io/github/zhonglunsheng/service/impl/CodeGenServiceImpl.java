@@ -6,8 +6,6 @@ import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.core.util.ZipUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.github.zhonglunsheng.core.template.TemplateService;
 import io.github.zhonglunsheng.domain.GenTable;
 import io.github.zhonglunsheng.domain.SysGlobal;
@@ -48,7 +46,7 @@ public class CodeGenServiceImpl implements CodeGenService {
     @Override
     public List<String> localCodeGen(CodeGenDTO codeGenDTO) {
         // 获取模板组所有模板
-        List<SysTpl> tplList = sysTplService.list(new LambdaQueryWrapper<SysTpl>().eq(SysTpl::getGroupName, codeGenDTO.getGroupName()));
+        List<SysTpl> tplList = sysTplService.queryByGroupName(codeGenDTO.getGroupName());
         List<String> result = new ArrayList<>();
 
         List<SysTpl> needGenContentSysTpl = getNeedGenContentSysTpl(codeGenDTO.getGroupName());
@@ -87,7 +85,7 @@ public class CodeGenServiceImpl implements CodeGenService {
 
     private List<SysTpl> getNeedGenContentSysTpl (String groupName) {
         // 获取模板组所有模板
-        List<SysTpl> tplList = sysTplService.list(new LambdaQueryWrapper<SysTpl>().eq(SysTpl::getGroupName, groupName));
+        List<SysTpl> tplList = sysTplService.queryByGroupName(groupName);
         List<SysTpl> result = new ArrayList<>();
         for (SysTpl tpl :
                 tplList) {
@@ -108,7 +106,7 @@ public class CodeGenServiceImpl implements CodeGenService {
         GenTable genTable = genTableService.selectTableByName(tableName);
         result.put("table", genTable);
         // 获取全局变量相关信息
-        SysGlobal sysGlobal = sysGlobalService.getOne(new QueryWrapper<>());
+        SysGlobal sysGlobal = sysGlobalService.getOne();
         result.putAll(JSONObject.parseObject(sysGlobal.getGlobalJson(), Map.class));
         // 获取列字段相关信息
         result.putAll(codeGenDTO.getData());

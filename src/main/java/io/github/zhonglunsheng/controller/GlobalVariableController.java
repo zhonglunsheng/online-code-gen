@@ -1,28 +1,35 @@
 package io.github.zhonglunsheng.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.github.zhonglunsheng.common.ResponseData;
+import io.github.zhonglunsheng.core.cache.ICache;
+import io.github.zhonglunsheng.domain.DataSourceBo;
 import io.github.zhonglunsheng.domain.SysGlobal;
+import io.github.zhonglunsheng.service.DataSourceService;
 import io.github.zhonglunsheng.service.SysGlobalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
+@RequestMapping("/codegen")
 public class GlobalVariableController {
 
     @Autowired
     private SysGlobalService sysGlobalService;
 
+    @Autowired
+    private DataSourceService dataSourceService;
+
+    @Autowired
+    private ICache iCache;
+
     @GetMapping("/global-variable")
     public ResponseData getGlobalVariable() {
-        SysGlobal sysGlobal = sysGlobalService.getOne(new QueryWrapper<>());
+        SysGlobal sysGlobal = sysGlobalService.getOne();
         if (sysGlobal == null || StrUtil.isBlank(sysGlobal.getGlobalJson())) {
             return ResponseData.createErrorResponse("全局变量为空");
         }
@@ -40,6 +47,14 @@ public class GlobalVariableController {
             }
         }
         sysGlobal.setUpdateTime(new Date());
+
+        // 判断是否需要切换数据源
+        JSONObject jsonObject = JSONObject.parseObject(sysGlobal.getGlobalJson());
+        if (jsonObject.containsKey("datasource")) {
+            JSONObject dataSource = jsonObject.getJSONObject("datasource");
+            dataSourceService.switchDataSource(BeanUtil.toBean(dataSource, DataSourceBo.class));
+            iCache.clearCache();
+        }
         return ResponseData.createSuccessResponse(sysGlobalService.updateById(sysGlobal));
     }
 }

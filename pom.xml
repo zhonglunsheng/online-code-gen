@@ -6,7 +6,7 @@
 
     <groupId>io.github.zhonglunsheng</groupId>
     <artifactId>online-code-gen</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,7 +21,7 @@
         <enjoy.version>5.0.0</enjoy.version>
         <dynamic-datasource>3.5.1</dynamic-datasource>
         <knife4j.version>2.0.7</knife4j.version>
-        <hutool-all.version>5.8.3</hutool-all.version>
+        <hutool.version>5.8.3</hutool.version>
         <destDir>${project.build.outputDirectory}/META-INF/resources/</destDir>
         <fastjson.version>2.0.1</fastjson.version>
     </properties>
@@ -30,11 +30,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -46,12 +48,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-            <version>${dynamic-datasource}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -60,21 +57,15 @@
         </dependency>
 
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>${knife4j.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool-all.version}</version>
+            <artifactId>hutool-core</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
         <dependency>
@@ -96,27 +87,27 @@
             </resource>
         </resources>
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <fork>true</fork>
-                </configuration>
-            </plugin>
-        </plugins>
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.8.1</version>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <fork>true</fork>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
     </build>
 
 </project>

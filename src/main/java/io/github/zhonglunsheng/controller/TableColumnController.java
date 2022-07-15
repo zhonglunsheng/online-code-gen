@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/codegen")
 public class TableColumnController {
 
     @Autowired

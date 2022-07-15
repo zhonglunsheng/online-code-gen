@@ -1,7 +1,5 @@
 package io.github.zhonglunsheng.controller;
 
-import cn.hutool.core.util.StrUtil;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.github.zhonglunsheng.common.ResponseData;
 import io.github.zhonglunsheng.domain.SysTpl;
 import io.github.zhonglunsheng.service.SysTplService;
@@ -12,27 +10,21 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tpl")
+@RequestMapping("/codegen/tpl")
 public class TplController {
 
     @Autowired
     private SysTplService sysTplService;
 
     @PostMapping("/list")
-    public ResponseData list (@RequestBody SysTpl sysTpl) {
-        QueryWrapper<SysTpl> queryWrapper =  new QueryWrapper<>();
-        if (StrUtil.isNotBlank(sysTpl.getTplName())) {
-            queryWrapper.like("tpl_name", sysTpl.getTplName())
-                    .or()
-                    .like("group_name", sysTpl.getTplName());
-        }
-        return ResponseData.createSuccessResponse(sysTplService.list(queryWrapper));
+    public ResponseData list(@RequestBody SysTpl sysTpl) {
+        return ResponseData.createSuccessResponse(sysTplService.query(sysTpl));
     }
 
 
     @GetMapping("/group/list")
-    public ResponseData queryGroupName () {
-        List<SysTpl> queryList = sysTplService.query().groupBy("group_name").select("group_name").list();
+    public ResponseData queryGroupName() {
+        List<SysTpl> queryList = sysTplService.groupByTplGroupName();
         return ResponseData.createSuccessResponse(queryList.stream().map(SysTpl::getGroupName));
     }
 

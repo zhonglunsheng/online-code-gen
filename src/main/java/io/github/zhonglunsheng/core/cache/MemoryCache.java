@@ -8,6 +8,7 @@ import io.github.zhonglunsheng.domain.GenTableColumn;
 import io.github.zhonglunsheng.domain.vo.ColumnVo;
 import io.github.zhonglunsheng.service.GenTableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
@@ -93,5 +94,12 @@ public class MemoryCache implements ICache {
     @CachePut(value = "globalCache", key = "#tableName")
     public List<ColumnVo> updateColumns(String tableName, List<ColumnVo> columnVos) {
         return columnVos;
+    }
+
+
+    @Override
+    @CacheEvict(cacheNames = "globalCache",allEntries = true)
+    public boolean clearCache() {
+        return true;
     }
 }

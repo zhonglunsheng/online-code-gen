@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/code")
+@RequestMapping("/codegen/code")
 public class CodeGenController {
 
     @Autowired

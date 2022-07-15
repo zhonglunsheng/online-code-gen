@@ -13,6 +13,7 @@ public class GlobalExceptionConfig {
 
     @ExceptionHandler(Exception.class)
     public ResponseData handleGlobalException (Exception e) {
+        e.printStackTrace();
         return ResponseData.createErrorResponse(e.getMessage());
     }
 }

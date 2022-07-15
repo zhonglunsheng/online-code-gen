@@ -4,7 +4,6 @@ import io.github.zhonglunsheng.domain.dto.CodeGenDTO;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 
 public interface CodeGenService {
 
