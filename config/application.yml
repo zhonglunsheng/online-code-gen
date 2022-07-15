@@ -1,27 +1,7 @@
 spring:
-#  datasource:
-#    dynamic:
-#      primary: master_1 #设置默认的数据源或者数据源组,默认值即为master
-#      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
-#      datasource:
-#        master_1:
-#          driver-class-name: com.mysql.cj.jdbc.Driver
-#          url: jdbc:mysql://localhost:3306/code-gen?serverTimezone=UTC
-#          username: root
-#          password: root
-#        master_2:
-#          driver-class-name: com.mysql.cj.jdbc.Driver
-#          url: jdbc:mysql://localhost:3306/snow?serverTimezone=UTC
-#          username: root
-#          password: root
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-#
-#mybatis-plus:
-#  type-aliases-package: io.github.zhonglunsheng.domain
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 code:
   gen:
@@ -31,6 +11,3 @@ code:
     slaveUrl: jdbc:mysql://localhost:3306/lipop?serverTimezone=UTC
     slaveUserName: root
     slavePassword: root
-server:
-  servlet:
-    context-path: /zhonglunsheng
