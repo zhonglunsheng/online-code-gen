@@ -1,10 +1,17 @@
-<p align="center">
+
+<p align="center" style="font-size: 30px; font-weight: bold">
   在线代码生成器，为简化开发工作、提高生产效率而生
 </p>
 
 <p align="center">
   <a href="https://search.maven.org/search?q=g:io.github.zhonglunsheng">
-    <img alt="code style" src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square">
+    <img alt="code style" src="https://img.shields.io/badge/maven-release-orange">
+  </a>
+  <a href="https://gitee.com/lipop/online-code-gen">
+    <img alt="code style" src="https://img.shields.io/badge/gitee-release-red">
+  </a>
+  <a href="https://github.com/zhonglunsheng/online-code-gen">
+    <img alt="code style" src="https://img.shields.io/badge/github-release-blue">
   </a>
 </p>
 
