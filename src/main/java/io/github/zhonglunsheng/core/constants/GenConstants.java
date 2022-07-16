@@ -1,10 +1,6 @@
 package io.github.zhonglunsheng.core.constants;
 
-/**
- * 代码生成通用常量
- *
- * @author ruoyi
- */
+
 public class GenConstants {
     /**
      * 单表（增删改查）
