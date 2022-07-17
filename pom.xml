@@ -6,7 +6,7 @@
 
     <groupId>io.github.zhonglunsheng</groupId>
     <artifactId>online-code-gen</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.2</version>
 
     <name>online-code-gen</name>
     <description>an online code generator developed based on Java, which provides dependency</description>
