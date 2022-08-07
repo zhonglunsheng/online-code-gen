@@ -58,7 +58,7 @@ online-code-gen是一款在线代码生成器，引用依赖即可开箱使用�
 <dependency>
     <groupId>io.github.zhonglunsheng</groupId>
     <artifactId>online-code-gen</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 ## 配置数据库地址
@@ -88,15 +88,10 @@ http://localhost:82/code.html
 ![mark](http://upload.i20forever.cn/blog/20220716/kQXTFhmgcRqc.png?imageslim)
 
 # 期望 | Futures
-- 个人也没有太多时间测试，只测了核心功能，项目开发中难免会出现小bug，欢迎提出修正
 - 如果有更好的想法，欢迎提出更好的意见，帮助完善
 
 # 版权 | License
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-# 感谢 | Thanks
-- 感谢 [@Ruoyi](https://gitee.com/y_project/RuoYi) 开源项目，在开发的过程中，代码生成部分给了我很大的启发
-- 感谢 [@Jfinal](https://gitee.com/jfinal/enjoy?_from=gitee_search) 开源的模板引擎Enjoy，真的非常好用，之前写模板最烦Freemarker、Velocity，找个字符串驼峰转换语法都找了老半天
-- 感谢 [@Hutool](https://gitee.com/dromara/hutool?_from=gitee_search) 提供的工具库，真的好用，用了之后就再也不想回到之前手写工具的日子了
 # 关注我 | About Me
 
 [Github](https://github.com/zhonglunsheng)
